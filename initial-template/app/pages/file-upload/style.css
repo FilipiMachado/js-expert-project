@@ -104,7 +104,7 @@
   position: relative;
   flex: 0 0 auto;
   margin-right: -59.18px;
-  background-color: #ff9000;
+  background-color: #3576DF;
   border-radius: 2.75px;
 }
 
@@ -264,7 +264,7 @@
   height: 352px;
   border-radius: 30px;
   border: 5px dashed;
-  border-color: #ff9000;
+  border-color: #3576DF;
 }
 
 .desktop .group-2 {
@@ -279,7 +279,7 @@
   width: 358px;
   height: 49px;
   top: 190px;
-  background-color: #ff9000;
+  background-color: #3576DF;
   border-radius: 10px;
   position: absolute;
   left: 0;
@@ -383,7 +383,7 @@
   border-radius: 20px;
 }
 progress::-webkit-progress-value {
-  background-color: #ff9000;
+  background-color: #3576DF;
   border-radius: 20px;
 }
 progress::-webkit-progress-bar {
@@ -392,10 +392,10 @@ progress::-webkit-progress-bar {
 }
 
 progress {
-  accent-color: #ff9000;
+  accent-color: #3576DF;
   width: 100%;
   height: 13px;
-  /* accent-color: #ff9000; */
+  /* accent-color: #3576DF; */
   /* color: yellow; */
   border-radius: 20px;
 }
@@ -403,7 +403,7 @@ progress {
 .desktop .rectangle-2 {
   width: 193px;
   height: 13px;
-  background-color: #ff9000;
+  background-color: #3576DF;
   border-radius: 20px;
 }
 
