@@ -39,6 +39,9 @@ onmessage = async ({ data }) => {
   await videoProcessor.start({
     file: data.file,
     encoderConfig,
+    sendMessage(message) {
+      self.postMessage(message);
+    },
   });
 
   self.postMessage({

@@ -9,11 +9,20 @@ export default class VideoProcessor {
     this.#mp4Demuxer = mp4Demuxer;
   }
 
-  mp4Decoder(encoderConfig, stream) {}
+  async mp4Decoder(encoderConfig, stream) {
+    this.#mp4Demuxer.run(stream, {
+      onConfig(config) {
+        debugger;
+      },
+      onChunk(chunk) {
+        debugger;
+      },
+    });
+  }
 
-  async start({ file, encoderConfig }) {
+  async start({ file, encoderConfig, sendMessage }) {
     const stream = file.stream();
     const fileName = file.name.split("/").pop().replace(".mp4", "");
-    debugger;
+    await this.mp4Decoder(encoderConfig, stream);
   }
 }
