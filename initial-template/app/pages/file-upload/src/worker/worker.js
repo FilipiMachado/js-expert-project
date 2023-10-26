@@ -1,3 +1,5 @@
+import VideoProcessor from "./videoProcessor.js";
+
 const qvgaContraints = {
   width: 320,
   height: 240,
@@ -13,6 +15,7 @@ const hdConstraints = {
 };
 
 const encoderConfig = {
+  ...qvgaContraints,
   bitrate: 10e6,
   // WebM
   codec: "vp09.00.10.08",
@@ -25,6 +28,8 @@ const encoderConfig = {
   hardwareAcceleration: "prefer-hardware",
   avc: {format: 'annexb'} */
 };
+
+const videoProcessor = new VideoProcessor();
 
 onmessage = (data) => {
   debugger;
