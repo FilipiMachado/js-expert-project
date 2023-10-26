@@ -31,11 +31,13 @@ const encoderConfig = {
 
 const videoProcessor = new VideoProcessor();
 
-onmessage = (data) => {
-  debugger;
-  setTimeout(() => {
-    self.postMessage({
-      status: "done",
-    });
-  }, 2000);
+onmessage = async ({ data }) => {
+  await videoProcessor.start({
+    file: data.file,
+    encoderConfig,
+  });
+
+  self.postMessage({
+    status: "done",
+  });
 };
