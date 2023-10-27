@@ -10,7 +10,7 @@ export default class VideoProcessor {
   }
 
   async mp4Decoder(encoderConfig, stream) {
-    this.#mp4Demuxer.run(stream, {
+    await this.#mp4Demuxer.run(stream, {
       onConfig(config) {
         debugger;
       },
