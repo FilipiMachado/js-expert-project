@@ -10,6 +10,15 @@ export default class VideoProcessor {
   }
 
   async mp4Decoder(encoderConfig, stream) {
+    const decoder = new VideoDecoder({
+      output(frame) {
+        debugger
+      },
+      error(e) {
+        console.error("error at mp4Decoder", e);
+      },
+    });
+
     await this.#mp4Demuxer.run(stream, {
       onConfig(config) {
         debugger;

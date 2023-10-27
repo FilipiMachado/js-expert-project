@@ -30,9 +30,9 @@ export default class MP4Demuxer {
     return this.#init(stream);
   }
 
-  #description(track) {
-    const trak = this.#file.getTrackById(track.id);
-    for (const entry of trak.mdia.minf.stbl.stsd.entries) {
+  #description({ id }) {
+    const track = this.#file.getTrackById(id);
+    for (const entry of track.mdia.minf.stbl.stsd.entries) {
       const box = entry.avcC || entry.hvcC || entry.vpcC || entry.av1C;
       if (box) {
         const stream = new DataStream(undefined, 0, DataStream.BIG_ENDIAN);
@@ -50,7 +50,11 @@ export default class MP4Demuxer {
   #onReady(info) {
     const [track] = info.videoTracks;
     this.#onConfig({
-      track,
+      codec: track.codec,
+      codeHeight: track.video.height,
+      codeWidth: track.video.width,
+      description: this.#description(track),
+      durationSecs: info.duration / info.timescale,
     });
     this.#file.setExtractionOptions(track.id);
     this.#file.start();
