@@ -11,6 +11,7 @@ export default class VideoProcessor {
 
   async mp4Decoder(encoderConfig, stream) {
     const decoder = new VideoDecoder({
+      /** @param {VideoFrame} frame */
       output(frame) {
         debugger
       },
@@ -21,10 +22,13 @@ export default class VideoProcessor {
 
     await this.#mp4Demuxer.run(stream, {
       onConfig(config) {
-        debugger;
+        decoder.configure(config)
+        //debugger
       },
+      /** @param {EncodedVideoChunk} chunk */
       onChunk(chunk) {
-        debugger;
+        //debugger;
+        decoder.decode(chunk)
       },
     });
   }
