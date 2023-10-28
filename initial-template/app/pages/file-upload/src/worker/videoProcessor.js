@@ -39,13 +39,13 @@ export default class VideoProcessor {
     });
   }
 
-  async start({ file, encoderConfig, sendMessage }) {
+  async start({ file, encoderConfig, renderFrame, sendMessage }) {
     const stream = file.stream();
     const fileName = file.name.split("/").pop().replace(".mp4", "");
     await this.mp4Decoder(encoderConfig, stream).pipeTo(
       new WritableStream({
         write(frame) {
-          debugger;
+          renderFrame(frame);
         },
       })
     );
